@@ -51,3 +51,6 @@ fonts/pictos-web.svg
 fonts/pictos-web.ttf
 
 fonts/pictos-web.woff
+
+node_modules
+dev.sh
