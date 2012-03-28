@@ -25,3 +25,4 @@ require [
   'app'
 ], ->
   console.log "Dependencies are loaded"
+  alert("Good")
