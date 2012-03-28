@@ -1,3 +1,23 @@
 body {
-  box-shadow: 0 0 400px #000 inset;
+  background: #fff;
+}
+#contacts {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.contact-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fcfcfc;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fafafa), color-stop(1, #f2f2f2));
+  background-image: -webkit-linear-gradient(top, #fafafa 0%, #f2f2f2 100%);
+  background-image: -moz-linear-gradient(top, #fafafa 0%, #f2f2f2 100%);
+  background-image: -o-linear-gradient(top, #fafafa 0%, #f2f2f2 100%);
+  background-image: -ms-linear-gradient(top, #fafafa 0%, #f2f2f2 100%);
+  background-image: linear-gradient(top, #fafafa 0%, #f2f2f2 100%);
+  border: 1px solid #ccc;
 }

@@ -3,22 +3,18 @@
   require.config({
     baseUrl: '/javascripts',
     paths: {
-      order: "order",
-      jquery: "jquery.min",
-      modernizr: "modernizr.foundation",
-      reveal: "jquery.reveal",
-      orbit: "jquery.orbit-1.4.0",
-      customforms: "jquery.customforms",
-      placeholder: "jquery.placeholder.min",
-      tooltips: "jquery.tooltips",
-      app: "app"
+      jquery: 'libs/jquery.min',
+      backbone: 'libs/backbone-min',
+      underscore: 'libs/underscore-min',
+      order: 'libs/rjs-plugins/order',
+      text: 'libs/rjs-plugins/text',
+      json: 'libs/rjs-plugins/json'
     },
-    priority: ['modernizr', 'jquery']
+    priority: ['jquery', 'underscore', 'backbone', 'text', 'order']
   });
 
-  require(['reveal', 'orbit', 'customforms', 'placeholder', 'tooltips', 'app'], function() {
-    console.log("Dependencies are loaded");
-    return alert("Good");
+  require(['app'], function(App) {
+    return window.app = new App;
   });
 
 }).call(this);
