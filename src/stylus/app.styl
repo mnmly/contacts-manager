@@ -7,9 +7,44 @@ body
   padding-top: 50px
   padding-bottom: 50px
 
+  #filter
+    label
+      display: block
+      font-size: 13px
+      line-height: 18px
+      cursor: pointer
+      margin-bottom: 9px
+
+  #add-contact
+    display none
+
 .contact-container
   box-sizing: border-box
   padding: 20px
   background: hsl(0, 0%, 99%)
   background-image linear-gradient(top, hsl(0, 0%, 98%), hsl(0, 0%, 95%))
   border: 1px solid hsl(0, 0%, 80%)
+  text-shadow: 0 1px 1px white
+  border-radius 5px
+
+  .profile-group
+    margin-bottom: 15px
+    img
+      position: absolute
+      height: 50px
+    h3
+      margin-left 70px
+      padding-top: 10px
+  dl
+    dt
+      display: inline-block
+      float: left
+      clear: left
+      text-align: right
+      width: 60px
+      margin-right: 10px
+      color: hsl(0, 0%, 60%)
+    dd
+      display: inline-block
+      clear: right
+      float: left

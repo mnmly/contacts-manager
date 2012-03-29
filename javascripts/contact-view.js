@@ -25,6 +25,17 @@
         return this;
       };
 
+      ContactView.prototype.events = {
+        "click button.delete": 'deleteContact'
+      };
+
+      ContactView.prototype.deleteContact = function() {
+        var removedType;
+        removedType = this.model.get('type').toLowerCase();
+        this.model.destroy();
+        return this.remove();
+      };
+
       return ContactView;
 
     })(Backbone.View);

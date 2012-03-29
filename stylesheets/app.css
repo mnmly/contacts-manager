@@ -5,6 +5,16 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+#contacts #filter label {
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  cursor: pointer;
+  margin-bottom: 9px;
+}
+#contacts #add-contact {
+  display: none;
+}
 .contact-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -20,4 +30,35 @@ body {
   background-image: -ms-linear-gradient(top, #fafafa 0%, #f2f2f2 100%);
   background-image: linear-gradient(top, #fafafa 0%, #f2f2f2 100%);
   border: 1px solid #ccc;
+  text-shadow: 0 1px 1px #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+.contact-container .profile-group {
+  margin-bottom: 15px;
+}
+.contact-container .profile-group img {
+  position: absolute;
+  height: 50px;
+}
+.contact-container .profile-group h3 {
+  margin-left: 70px;
+  padding-top: 10px;
+}
+.contact-container dl dt {
+  display: inline-block;
+  float: left;
+  clear: left;
+  text-align: right;
+  width: 60px;
+  margin-right: 10px;
+  color: #999;
+}
+.contact-container dl dd {
+  display: inline-block;
+  clear: right;
+  float: left;
 }

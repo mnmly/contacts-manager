@@ -1,8 +1,9 @@
 define [
   'directory'
+  'contact'
   'contact-view'
   'json!../misc/data/contacts.json'
-], (Directory, ContactView, contacts)->
+], (Directory, Contact, ContactView, contacts)->
 
   class DirectoryView extends Backbone.View
 
@@ -11,11 +12,17 @@ define [
       @collection = new Directory(contacts)
       @$el.find("#filter").append @createSelect()
       
+
       @on('change:filterType', @filterByType)
+
       @collection.on('reset', @render)
+      @collection.on('add', @renderContact)
+      @collection.on('remove', @removeContact)
 
     events:
       "change #filter select": "setFilter"
+      "click #add": "addContact"
+      "click #show-form": "showForm"
 
 
     render: =>
@@ -26,7 +33,7 @@ define [
         @renderContact(item)
 
 
-    renderContact: (item)->
+    renderContact: (item)=>
 
       contactView = new ContactView model: item
       @$el.append contactView.render().el
@@ -55,7 +62,8 @@ define [
     setFilter: (e)=>
       @filterType = e.currentTarget.value
       @trigger('change:filterType')
-    
+ 
+
     filterByType: =>
       if @filterType is 'all'
         @collection.reset(contacts)
@@ -73,3 +81,41 @@ define [
         @router.navigate "filter/#{filterType}"
 
 
+    addContact: (e)->
+      e.preventDefault()
+
+      formData = {}
+      $("#add-contact").children('input').each (i, el)->
+        $el = $(el)
+        if $el.val() isnt ''
+          formData[el.id] = $el.val()
+      
+      contacts.push formData
+
+      
+      if formData.type in @getTypes()
+        @collection.add new Contact(formData)
+      else
+        @collection.add new Contact(formData)
+        @$el.find("#filter")
+          .find('select').remove()
+          .end().append @createSelect()
+
+
+    removeContact: (removedContact)=>
+      removed = removedContact.attributes
+      if removed.photo is Contact::defaults.photo
+        delete removed.photo
+      
+      _.each contacts, (contact)->
+        if _.isEqual(contact, removed)
+          contacts.splice _.indexOf(contacts, contact), 1
+
+      @$el.find('#filter select').find("[value='#{removed.type.toLowerCase()}']").remove()
+
+
+    showForm: (e)=>
+      e.preventDefault()
+      $( e.target ).toggleClass 'disabled'
+      @$el.find("#add-contact").slideToggle()
+      

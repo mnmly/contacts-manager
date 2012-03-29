@@ -6,7 +6,6 @@
 
       function App() {
         this.router = new ContactsRouter();
-        this.router.directoryView.render();
         Backbone.history.start();
       }
 

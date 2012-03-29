@@ -1,9 +1,12 @@
-<img src="<%= photo %>" alt="<%= name %>" />
+<div class="profile-group">
+  <img src="<%= photo %>" alt="<%= name %>" />
+  <h3><%= name %> <span><%= type %></span> </h3>
+</div>
 
-<h3><%= name %> <span><%= type %></span> </h3>
-
-<div><span class="icon-home"></span><%= address %></div>
 
 <dl>
-  <dt></dt><dd><span class="icon-envelope"></span><a href="mailto:<%= email %>"><%= email %></a></dd>
+  <dt>Address:</dt><dd><%= address %></dd>
+  <dt>Phone:</dt><dd><%= tel %></dd>
+  <dt>Email:</dt><dd><a href="mailto:<%= email %>"><%= email %></a></dd>
 </dl>
+<button class="delete small red nice button radius">Delete</button>

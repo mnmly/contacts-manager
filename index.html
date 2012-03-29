@@ -46,10 +46,23 @@
 		<div class="row">
 			<div id="contacts" class="block-grid two-up">
         <header>
+          <a id="show-form" href="#" class="small green nice button radius">Add new contact</a>
           <div id="filter">
             <label for="">Show me:</label>
           </div>
         </header>
+
+        <form class="nice columns twelve" id="add-contact" action="#">
+
+          <label for="photo">photo:</label><input id="photo" class="input-text" type="file" />
+          <label for="type">Type:</label><input id="type" class="input-text" />
+          <label for="name">Name:</label><input id="name" class="input-text" />
+          <label for="address">Address:</label><input id="address" class="input-text" />
+          <label for="tel">Tel:</label><input id="tel" class="input-text" />
+          <label for="email">Email:</label><input id="email" class="input-text" />
+          <button id="add">Add</button>
+
+        </form>
         
 			</div>
 		</div>

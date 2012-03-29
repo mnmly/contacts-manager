@@ -10,3 +10,13 @@ define ['text!../misc/templates/contact.html'], (contactTemplate)->
       tmpl = _.template(@template)
       @$el.html(tmpl(@model.toJSON()))
       @
+
+    events:
+      "click button.delete": 'deleteContact'
+
+
+    deleteContact: ->
+
+      removedType = @model.get('type').toLowerCase()
+      @model.destroy()
+      @remove()
