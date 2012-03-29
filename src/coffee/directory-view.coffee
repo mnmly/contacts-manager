@@ -111,7 +111,8 @@ define [
         if _.isEqual(contact, removed)
           contacts.splice _.indexOf(contacts, contact), 1
 
-      @$el.find('#filter select').find("[value='#{removed.type.toLowerCase()}']").remove()
+      unless removed.type.toLowerCase() in @getTypes()
+        @$el.find('#filter select').find("[value='#{removed.type.toLowerCase()}']").remove()
 
 
     showForm: (e)=>

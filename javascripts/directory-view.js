@@ -116,7 +116,7 @@
       };
 
       DirectoryView.prototype.removeContact = function(removedContact) {
-        var removed;
+        var removed, _ref;
         removed = removedContact.attributes;
         if (removed.photo === Contact.prototype.defaults.photo) {
           delete removed.photo;
@@ -126,7 +126,9 @@
             return contacts.splice(_.indexOf(contacts, contact), 1);
           }
         });
-        return this.$el.find('#filter select').find("[value='" + (removed.type.toLowerCase()) + "']").remove();
+        if (_ref = removed.type.toLowerCase(), __indexOf.call(this.getTypes(), _ref) < 0) {
+          return this.$el.find('#filter select').find("[value='" + (removed.type.toLowerCase()) + "']").remove();
+        }
       };
 
       DirectoryView.prototype.showForm = function(e) {
