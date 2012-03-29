@@ -1,12 +1,13 @@
 (function() {
 
-  define(['directory-view'], function(DirectoryView) {
+  define(['contacts-router'], function(ContactsRouter) {
     var App;
     return App = (function() {
 
       function App() {
-        var directoryView;
-        directoryView = new DirectoryView();
+        this.router = new ContactsRouter();
+        this.router.directoryView.render();
+        Backbone.history.start();
       }
 
       return App;

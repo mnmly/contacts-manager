@@ -1,6 +1,7 @@
 (function() {
 
   require.config({
+    waitSeconds: 10,
     baseUrl: '/javascripts',
     paths: {
       jquery: 'libs/jquery.min',
@@ -10,7 +11,7 @@
       text: 'libs/rjs-plugins/text',
       json: 'libs/rjs-plugins/json'
     },
-    priority: ['jquery', 'underscore', 'backbone', 'text', 'order']
+    priority: ['underscore', 'jquery', 'backbone', 'text', 'order']
   });
 
   require(['app'], function(App) {

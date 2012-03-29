@@ -1,6 +1,9 @@
-define ['directory-view'], (DirectoryView)->
+define ['contacts-router'], (ContactsRouter)->
 
   class App
 
     constructor: ->
-      directoryView = new DirectoryView()
+      @router        = new ContactsRouter()
+      @router.directoryView.render()
+      Backbone.history.start()
+      

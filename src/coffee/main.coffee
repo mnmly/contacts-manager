@@ -1,4 +1,5 @@
 require.config
+  waitSeconds: 10
   baseUrl:       '/javascripts'
   paths:
     jquery:      'libs/jquery.min'
@@ -9,10 +10,9 @@ require.config
     text:        'libs/rjs-plugins/text'
     json:        'libs/rjs-plugins/json'
 
-
   priority:[
-    'jquery'
     'underscore'
+    'jquery'
     'backbone'
     'text'
     'order'
