@@ -1,6 +1,7 @@
+<span class="type"><%= type %></span> 
 <div class="profile-group">
   <img src="<%= photo %>" alt="<%= name %>" />
-  <h3><%= name %> <span><%= type %></span> </h3>
+  <h3><%= name %> </h3>
 </div>
 
 
@@ -9,4 +10,6 @@
   <dt>Phone:</dt><dd><%= tel %></dd>
   <dt>Email:</dt><dd><a href="mailto:<%= email %>"><%= email %></a></dd>
 </dl>
-<button class="delete small red nice button radius">Delete</button>
+
+<button class="edit post-button icon-pencil icon-large"></button>
+<button class="delete post-button icon-trash icon-large"></button>

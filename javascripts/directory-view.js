@@ -27,7 +27,7 @@
         this.on('change:filterType', this.filterByType);
         this.collection.on('reset', this.render);
         this.collection.on('add', this.renderContact);
-        return this.collection.on('remove', this.removeContact);
+        return this.collection.on('change', this.updateContacts);
       };
 
       DirectoryView.prototype.events = {
@@ -135,6 +135,26 @@
         e.preventDefault();
         $(e.target).toggleClass('disabled');
         return this.$el.find("#add-contact").slideToggle();
+      };
+
+      DirectoryView.prototype.updateContacts = function(contact) {
+        var attributes, key, prev, val, _ref;
+        prev = contact.previousAttributes();
+        attributes = {};
+        _ref = contact.attributes;
+        for (key in _ref) {
+          val = _ref[key];
+          attributes[key] = val;
+        }
+        if (prev.photo === Contact.prototype.defaults.photo) delete prev.photo;
+        if (attributes.photo === Contact.prototype.defaults.photo) {
+          delete attributes.photo;
+        }
+        return _.each(contacts, function(contact) {
+          if (_.isEqual(contact, prev)) {
+            return contacts.splice(_.indexOf(contacts, contact), 1, attributes);
+          }
+        });
       };
 
       return DirectoryView;

@@ -36,6 +36,7 @@ body {
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
+  position: relative;
 }
 .contact-container .profile-group {
   margin-bottom: 15px;
@@ -61,4 +62,34 @@ body {
   display: inline-block;
   clear: right;
   float: left;
+}
+.contact-container:hover .post-button {
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+.contact-container .post-button {
+  position: absolute;
+  background: none;
+  border: none;
+  font-size: 16px;
+  top: 10px;
+  opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  color: #808080;
+  text-shadow: 0 1px 1px #fff;
+  -webkit-transition: opacity 0.3s, color 0.3s;
+  -moz-transition: opacity 0.3s, color 0.3s;
+  -o-transition: opacity 0.3s, color 0.3s;
+  -ms-transition: opacity 0.3s, color 0.3s;
+  transition: opacity 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.contact-container .post-button:hover {
+  color: #333;
+}
+.contact-container .edit {
+  right: 40px;
+}
+.contact-container .delete {
+  right: 10px;
 }

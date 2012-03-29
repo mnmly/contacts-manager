@@ -26,6 +26,7 @@ body
   border: 1px solid hsl(0, 0%, 80%)
   text-shadow: 0 1px 1px white
   border-radius 5px
+  position relative
 
   .profile-group
     margin-bottom: 15px
@@ -48,3 +49,28 @@ body
       display: inline-block
       clear: right
       float: left
+
+  &:hover
+    .post-button
+      opacity 1
+      
+  .post-button
+    position absolute 
+    background none
+    border none
+    font-size 16px
+    top 10px
+    opacity 0
+    color hsl(0, 0%, 50%)
+    text-shadow 0 1px 1px white
+    transition opacity .3s, color .3s
+    cursor pointer
+
+    &:hover
+      color hsl(0, 0%, 20%)
+
+  .edit
+    right 40px
+
+  .delete
+    right 10px

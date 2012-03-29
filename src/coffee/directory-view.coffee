@@ -17,7 +17,7 @@ define [
 
       @collection.on('reset', @render)
       @collection.on('add', @renderContact)
-      @collection.on('remove', @removeContact)
+      @collection.on('change', @updateContacts)
 
     events:
       "change #filter select": "setFilter"
@@ -119,4 +119,22 @@ define [
       e.preventDefault()
       $( e.target ).toggleClass 'disabled'
       @$el.find("#add-contact").slideToggle()
+    
+    updateContacts: (contact)->
+
+      prev       = contact.previousAttributes()
+      attributes = {}
       
+      # Clone attributes
+      for key, val of contact.attributes
+        attributes[key] = val
+
+      if prev.photo is Contact::defaults.photo
+        delete prev.photo
+      
+      if attributes.photo is Contact::defaults.photo
+        delete attributes.photo
+
+      _.each contacts, (contact)->
+        if _.isEqual(contact, prev)
+          contacts.splice _.indexOf(contacts, contact), 1, attributes
